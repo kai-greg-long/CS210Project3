@@ -124,6 +124,33 @@ bool dfs(int r, int c,
          vector<vector<int>>& parent_c,
          int exit_r, int exit_c)
 {
+    int N = maze.size();
+    int M = maze[0].size();
+
+    visited[r][c] = true;
+
+    // Base case: found the exit
+    if (r == exit_r && c == exit_c) {
+        return true;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        int new_r = r + dr[i];
+        int new_c = c + dc[i];
+
+    // Check Bounds
+    if (new_r < 0 || new_r >= N || new_c < 0 || new_c >= M) {
+            continue;
+    }
+
+    //Skip visted cells and walls
+    if (maze[new_r][new_c] == 1) {
+        continue;
+    }
+    if (visited[new_r][new_c]) {
+            continue;
+    }
+
 
 
 }
